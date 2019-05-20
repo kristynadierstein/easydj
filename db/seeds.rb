@@ -11,6 +11,8 @@ Item.destroy_all if Rails.env.development?
 
 
 
+
+
 speaker = Item.create!(
   location: "Montreal - Laval",
   name: "Great Powerfull Speaker"
@@ -34,3 +36,6 @@ dj_set = Item.create!(
   delivery: "pick up at Toronto, Maple Leaves stadium"
   policies: "dont break it"
   )
+
+
+
