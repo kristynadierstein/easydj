@@ -1,6 +1,8 @@
 class ItemsController < ApplicationController
+  before_action :set_items, only: [:show, :destroy]
 
   def index
+    @items = Item.all
   end
 
   def create
@@ -15,4 +17,9 @@ class ItemsController < ApplicationController
   def destroy
   end
 
+  private
+
+  def set_restaurant
+    @item = Item.find(params[:id])
+  end
 end
