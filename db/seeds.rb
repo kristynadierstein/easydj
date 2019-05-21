@@ -16,7 +16,8 @@ peter_pan = User.create!(
   last_name: "Peterson",
   username: "peter_pan",
   email: "peter_pan@fairy.com",
-  password: "user_peter_pan"
+  password: "user_peter_pan",
+  image_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/quaaqkoxit0ddk7pdupp.jpg"
   )
 
 cindy = User.create!(
@@ -24,7 +25,8 @@ cindy = User.create!(
   last_name: "The Princess",
   username: "Cindy",
   email: "cindy@swamp.cz",
-  password: "user_cindy")
+  password: "user_cindy",
+  image_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/rowb3acggdlhtsgzaafs.jpg")
 
 
 speaker = Item.create!(
@@ -37,7 +39,9 @@ speaker = Item.create!(
   image_url: "https://www.listeningpost.co.nz/assets/Yamaaha-NS-5000-Speakers-Pair_183108_5.jpg",
   delivery: "pick up at my place",
   policies: "if you break it or there is another hole from cigarette butt, you will buy me a new one",
-  user_id: peter_pan.id
+  user_id: peter_pan.id,
+  start_date:"2019-06-23",
+  end_date: "2019-06-27"
 )
 
 dj_set = Item.create!(
@@ -50,20 +54,24 @@ dj_set = Item.create!(
   image_url: "https://images-na.ssl-images-amazon.com/images/I/514J8t-BCSL._SL1032_.jpg",
   delivery: "pick up at Toronto, Maple Leaves stadium",
   policies: "dont break it",
-  user_id: cindy.id
+  user_id: cindy.id,
+  start_date:"2019-06-25",
+  end_date: "2019-06-27"
   )
 
 random_a = Rental.create!(
-  date: "2019-06-23",
   status: "pending",
   user_id: peter_pan.id,
-  item_id: dj_set.id
+  item_id: dj_set.id,
+  start_date:"2019-06-25",
+  end_date: "2019-06-26"
   )
 
 random_b = Rental.create!(
-  date: "2019-05-04",
   status: "approved",
   user_id: cindy.id,
-  item_id: speaker.id
+  item_id: speaker.id,
+  start_date:"2019-06-26",
+  end_date: "2019-06-27"
   )
 
