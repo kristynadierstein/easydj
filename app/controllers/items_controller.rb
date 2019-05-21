@@ -2,7 +2,11 @@ class ItemsController < ApplicationController
   before_action :set_items, only: [:show, :destroy]
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
-    @items = Item.all
+    if params[:query].present?
+      @items = Item.where("name @@ ?", "%#{params[:query]}%")
+    else
+      @items = Item.all
+    end
   end
 
   def create
