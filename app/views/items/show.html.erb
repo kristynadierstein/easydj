@@ -9,14 +9,10 @@
 <p>Delivery: <%= @item.delivery %></p>
 <p>Policies: <%= @item.policies %></p>
 
-<%= form_tag( new_item_rental_path(@item), method: "get") do %>
-  <%= date_field(:request, :start_date) %>
-  <%= date_field(:request, :end_date) %>
-  <%= submit_tag("Book") %>
+<%= simple_form_for [@item, @rental] do |f| %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%= f.submit "book" %>
 <% end %>
 
-
-
-
-
-
+<%= link_to "Return", items_path %>
