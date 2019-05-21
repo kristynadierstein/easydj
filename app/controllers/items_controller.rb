@@ -1,6 +1,5 @@
 class ItemsController < ApplicationController
   before_action :set_items, only: [:show, :destroy]
-
   def index
     @items = Item.all
   end
@@ -24,11 +23,15 @@ class ItemsController < ApplicationController
     @item = Item.new
   end
 
+  def show
+    @item = Item.find(params[:id])
+  end
 
   def destroy
     @item.destroy
     redirect_to items_path
   end
+
 
   private
 
@@ -42,4 +45,5 @@ class ItemsController < ApplicationController
       :image_url, :delivery, :policies
     )
   end
+
 end

@@ -1,0 +1,22 @@
+<h1><%= @item.name %></h1>
+
+<p><%= @item.image_url %></p>
+<p>Description: <%= @item.description %></p>
+<p>Price: <%= @item.price %></p>
+<p>Location: <%= @item.location %></p>
+<p>Condition: <%= @item.condition %></p>
+<p>Deposit: <%= @item.deposit %></p>
+<p>Delivery: <%= @item.delivery %></p>
+<p>Policies: <%= @item.policies %></p>
+
+<%= form_tag( new_item_rental_path(@item), method: "get") do %>
+  <%= date_field(:request, :start_date) %>
+  <%= date_field(:request, :end_date) %>
+  <%= submit_tag("Book") %>
+<% end %>
+
+
+
+
+
+
