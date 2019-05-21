@@ -1,0 +1,22 @@
+<div class="container">
+  <h2>Speakers</h2>
+
+
+  <% @items.each do |item| %>
+    <div class="card-product">
+      <div>
+      <img src="<%= item.image_url %>">
+      </div>
+      <div class="card-product-infos">
+        <h2><%= item.name %></h2>
+        <p>Product description with <strong>relevant info</strong> only.</p>
+        <%= link_to 'Delete', item, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+    </div>
+  <% end %>
+  <%= link_to "create new",  new_item_path(@items) %>
+</div>
+
+
+
+
