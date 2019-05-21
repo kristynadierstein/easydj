@@ -7,6 +7,8 @@ class ItemsController < ApplicationController
     else
       @items = Item.all
     end
+
+     @items = Item.where.not(latitude: nil, longitude: nil)
   end
 
   def create
@@ -28,6 +30,8 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @rental = Rental.new
+    @markers = [{lat: @item.latitude,
+    lng: @item.longitude}]
   end
 
   def destroy
