@@ -1,19 +1,14 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <a class="navbar-brand" href="#">
     <img src="" />
+    <%= link_to root_path do %>
+    <i class='fas fa-home'></i>
+    <% end %>
   </a>
+
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
-  <%= form_tag items_path, method: :get do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-      placeholder: "find an item"
-    %>
-  <% end %>
-
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
@@ -21,12 +16,17 @@
         <!-- <a class="nav-link" href="#">Button</a> -->
         <%= link_to "Create new item", new_item_path(@items), class: "nav-link" %>
       </li>
-      <li class="nav-item">
-        <!-- <a class="nav-link" href="/users/sign_in">Login</a> -->
-        <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+      <%if user_signed_in? %>
+       <li class="nav-item active">
+        <!-- <a class="nav-link" href="#">Button</a> -->
+        <%= link_to "logout",  destroy_user_session_path, method: :delete, class: "nav-link" %>
       </li>
       <li class="nav-item dropdown">
-        <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="..easydj/app/assets/images" />
+        
+        <% if current_user.photo.file != nil %>
+        <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="<%= cl_image_path current_user.photo %>" />
+        <% end %>
+
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
           <%= link_to destroy_user_session_path, method: :delete, class: 'dropdown-item' do %>
             <i class=“fa fa-sign-out”></i>Log out
@@ -34,6 +34,12 @@
           <a class="dropdown-item" href="#">Another action</a>
         </div>
       </li>
+      <% else %>
+      <li class="nav-item">
+        <!-- <a class="nav-link" href="/users/sign_in">Login</a> -->
+        <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+      </li>
+      <% end %>
     </ul>
   </div>
 </div>
