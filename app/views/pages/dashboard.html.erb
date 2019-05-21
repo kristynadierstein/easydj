@@ -5,14 +5,12 @@
 <h2>My rentals: </h2>
     <% @rentals.each do |rental| %>
       <div class="card-product">
-        <div>
-          <img src="<%= item.image_url %>">
-        </div>
         <div class="card-product-infos">
           <h2><%= rental.item.name %></h2>
-            <p> <%= rental.date %></p>
-              <p> <%= rental.status %></p>
-              <%= link_to 'Delete', item, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <p> <%= rental.start_date %></p>
+            <p> <%= rental.end_date %></p>
+            <p> <%= rental.status %></p>
+            <%= link_to 'Delete', @item, method: :delete, data: { confirm: 'Are you sure?' } %>
         </div>
       </div>
     <% end %>
@@ -22,7 +20,7 @@
   <% @items.each do |item| %>
     <div class="card-product">
       <div>
-        <img src="<%= item.image_url %>">
+        <%= cl_image_tag(item.photo) %>
       </div>
       <div class="card-product-infos">
         <h2><%= item.name %></h2>
