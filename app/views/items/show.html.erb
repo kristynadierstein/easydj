@@ -1,6 +1,6 @@
 <h1><%= @item.name %></h1>
 
-<p><%= @item.image_url %></p>
+<p><%= cl_image_tag @item.photo, height: 300, width: 400, crop: :fill %></p>
 <p>Description: <%= @item.description %></p>
 <p>Price: <%= @item.price %></p>
 <p>Location: <%= @item.location %></p>

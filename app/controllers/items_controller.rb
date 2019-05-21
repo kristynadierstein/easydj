@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_items, only: [:show, :destroy]
+
   def index
     @items = Item.all
   end
@@ -42,8 +43,7 @@ class ItemsController < ApplicationController
   def params_item
     params.require(:item).permit(
       :location, :name, :description, :price, :condition, :deposit,
-      :image_url, :delivery, :policies
+      :image_url, :delivery, :policies, :photo
     )
   end
-
 end
