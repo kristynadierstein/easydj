@@ -1,7 +1,11 @@
 class ItemsController < ApplicationController
   before_action :set_items, only: [:show, :destroy]
   def index
-    @items = Item.all
+    if params[:query].present?
+      @items = Item.where("name @@ ?", "%#{params[:query]}%")
+    else
+      @items = Item.all
+    end
   end
 
   def create

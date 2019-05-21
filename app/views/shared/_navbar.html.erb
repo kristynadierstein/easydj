@@ -6,12 +6,20 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
+  <%= form_tag items_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "find an item"
+    %>
+  <% end %>
+
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Button</a>
-        <!-- <%= link_to "Button" %> -->
+        <!-- <a class="nav-link" href="#">Button</a> -->
+        <%= link_to "Create new item", new_item_path(@items), class: "nav-link" %>
       </li>
       <li class="nav-item">
         <!-- <a class="nav-link" href="/users/sign_in">Login</a> -->
@@ -27,3 +35,9 @@
     </ul>
   </div>
 </div>
+
+
+
+
+<!-- the list of items-->
+
