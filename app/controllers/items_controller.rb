@@ -1,11 +1,8 @@
 class ItemsController < ApplicationController
   before_action :set_items, only: [:show, :destroy]
-
+  skip_before_action :authenticate_user!, only: [:index, :show]
   def index
     @items = Item.all
-  end
-
-  def show
   end
 
   def create
@@ -26,6 +23,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @rental = Rental.new
   end
 
   def destroy

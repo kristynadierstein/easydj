@@ -1,0 +1,34 @@
+<div class="container">
+  <h1>Pages#dashboard</h1>
+    <p>Find me in app/views/pages/dashboard.html.erb</p>
+
+<h2>My rentals: </h2>
+    <% @rentals.each do |rental| %>
+      <div class="card-product">
+        <div>
+          <img src="<%= item.image_url %>">
+        </div>
+        <div class="card-product-infos">
+          <h2><%= rental.item.name %></h2>
+            <p> <%= rental.date %></p>
+              <p> <%= rental.status %></p>
+              <%= link_to 'Delete', item, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+      </div>
+    <% end %>
+
+
+<h2>My items: </h2>
+  <% @items.each do |item| %>
+    <div class="card-product">
+      <div>
+        <img src="<%= item.image_url %>">
+      </div>
+      <div class="card-product-infos">
+        <h2><%= item.name %></h2>
+          <p>Product description with <strong>relevant info</strong> only.</p>
+            <%= link_to 'Delete', item, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+    </div>
+  <% end %>
+ </div>
