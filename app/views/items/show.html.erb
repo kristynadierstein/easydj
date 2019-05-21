@@ -1,18 +1,23 @@
-<h1><%= @item.name %></h1>
 
-<p><%= cl_image_tag @item.photo, height: 300, width: 400, crop: :fill %></p>
-<p>Description: <%= @item.description %></p>
-<p>Price: <%= @item.price %></p>
-<p>Location: <%= @item.location %></p>
-<p>Condition: <%= @item.condition %></p>
-<p>Deposit: <%= @item.deposit %></p>
-<p>Delivery: <%= @item.delivery %></p>
-<p>Policies: <%= @item.policies %></p>
+<div class="container">
+  <h1><%= @item.name %></h1>
 
-<%= simple_form_for [@item, @rental] do |f| %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
-  <%= f.submit "book" %>
-<% end %>
+  <p><%= cl_image_tag @item.photo, height: 300, width: 400, crop: :fill %></p>
+  <p>Description: <%= @item.description %></p>
+  <p>Price: <%= @item.price %></p>
+  <p>Location: <%= @item.location %></p>
+  <p>Condition: <%= @item.condition %></p>
+  <p>Deposit: <%= @item.deposit %></p>
+  <p>Delivery: <%= @item.delivery %></p>
+  <p>Policies: <%= @item.policies %></p>
+</div>
+
+<div class="container">
+  <%= simple_form_for [@item, @rental] do |f| %>
+    <%= f.input :start_date, as: :date, html5: true %>
+    <%= f.input :end_date, as: :date, html5: true %>
+    <%= f.submit "Book" %>
+  <% end %>
+</div>
 
 <%= link_to "Return", items_path %>
