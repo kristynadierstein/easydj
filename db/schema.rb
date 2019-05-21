@@ -27,9 +27,9 @@ ActiveRecord::Schema.define(version: 2019_05_21_181932) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "photo"
     t.date "start_date"
     t.date "end_date"
-    t.string "photo"
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
