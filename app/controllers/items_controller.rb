@@ -4,9 +4,6 @@ class ItemsController < ApplicationController
     @items = Item.all
   end
 
-  def show
-  end
-
   def create
     @item = Item.new(params_item)
 
@@ -25,6 +22,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @rental = Rental.new
   end
 
   def destroy
