@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 2019_05_21_193732) do
 
   # These are extensions that must be enabled in order to support this database
@@ -30,7 +29,15 @@ ActiveRecord::Schema.define(version: 2019_05_21_193732) do
     t.datetime "updated_at", null: false
     t.date "start_date"
     t.date "end_date"
+<<<<<<< HEAD
     t.string "photo"
+=======
+
+    t.string "photo"
+    t.float "latitude"
+    t.float "longitude"
+
+>>>>>>> 30338a9face0da3f7785c3fb1dec2462adcf0f39
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
