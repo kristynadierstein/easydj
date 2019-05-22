@@ -16,6 +16,7 @@
   end
 
   def update
+    @rental = Rental.find(params[:id])
   end
 
   def destroy
@@ -27,6 +28,6 @@
   private
 
   def rental_params
-    params.require(:rental).permit(:start_date, :end_date)
+    params.require(:rental).permit(:start_date, :end_date, :status)
   end
 end

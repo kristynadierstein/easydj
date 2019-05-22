@@ -1,35 +1,51 @@
 <div class="container">
-  <h1>Pages#dashboard</h1>
-    <p>Find me in app/views/pages/dashboard.html.erb</p>
 
-<h2>My rentals: </h2>
-    <% @rentals.each do |rental| %>
+
+  <h2>My rentals </h2>
+  <div class="my_bookings row">
+        <% @rentals.each do |rental| %>
+          <div class="cards" style="width: 18rem;">
+            <img class="card-img-top"<%= cl_image_tag(rental.item.photo) %>
+            <div class="card-category">
+              <h2 class="card-title" ><%= link_to rental.item.name, item_path(rental.item.id) %>
+              </h2>
+                <p class="card-text"> You booked this item from: <%= rental.start_date %> to <%= rental.end_date %></p>
+                <p class="card-text"> Status of your booking:</p>
+                <div class = "status">
+                 <%= select_tag "status", options_for_select(Rental::STATUS, rental.status) %>
+                </div>
+                <div class="btn btn-primary">
+                  <%= link_to 'Delete', rental_path(rental), method: :delete, data: { confirm: 'Are you sure?' } %>
+                </div>
+            </div>
+          </div>
+        <% end %>
+    </div>
+
+<div class="my_items">
+  <h2>My items </h2>
+    <% @items.each do |item| %>
       <div class="card-product">
         <div>
-          <%= cl_image_tag(rental.item.photo) %>
+          <%= cl_image_tag(item.photo) %>
         </div>
         <div class="card-product-infos">
-          <h2><%= rental.item.name %></h2>
-          <p> <%= rental.start_date %></p>
-          <p> <%= rental.end_date %></p>
-          <p> <%= rental.status %></p>
-          <%= link_to 'Delete', rental_path(rental), method: :delete, data: { confirm: 'Are you sure?' } %>
+          <h2><%= item.name %></h2>
+            <p>Product description with <strong>relevant info</strong> only.</p>
+              <%= link_to 'Delete', item, method: :delete, data: { confirm: 'Are you sure?' } %>
         </div>
       </div>
     <% end %>
-
-
-<h2>My items: </h2>
-  <% @items.each do |item| %>
-    <div class="card-product">
-      <div>
-        <%= cl_image_tag(item.photo) %>
-      </div>
-      <div class="card-product-infos">
-        <h2><%= item.name %></h2>
-          <p>Product description with <strong>relevant info</strong> only.</p>
-            <%= link_to 'Delete', item, method: :delete, data: { confirm: 'Are you sure?' } %>
-      </div>
-    </div>
-  <% end %>
+   </div>
  </div>
+</div>
+
+<script>
+  const status = document.getElementById("status");
+  status.addEventListener("change", (event) => {
+    $.ajax({
+      type: "PATCH",
+      url: "/rentals/13"
+    });
+  });
+</script>
