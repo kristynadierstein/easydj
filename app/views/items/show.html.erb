@@ -1,32 +1,56 @@
+<div class="background_image_speaker">
+  <div class="narrowed_container">
+    <div id="item_title">
+      <h1><%= @item.name %></h1>
+    </div>
 
-<div class="container">
-  <h1><%= @item.name %></h1>
+    <div id="item_photo">
+      <%= cl_image_tag @item.photo, height: 300, width: 400, crop: :fill %>
+    </div>
+    <div class="item_details">
+      <p>Description: <%= @item.description %></p>
+      <p>Price: <%= @item.price %></p>
+      <p>Location: <%= @item.location %></p>
+      <p>Condition: <%= @item.condition %></p>
+      <p>Deposit: <%= @item.deposit %></p>
+      <p>Delivery: <%= @item.delivery %></p>
+      <p>Policies: <%= @item.policies %></p>
+    </div>
 
-  <p><%= cl_image_tag @item.photo, height: 300, width: 400, crop: :fill %></p>
-  <p>Description: <%= @item.description %></p>
-  <p>Price: <%= @item.price %></p>
-  <p>Location: <%= @item.location %></p>
-  <p>Condition: <%= @item.condition %></p>
-  <p>Deposit: <%= @item.deposit %></p>
-  <p>Delivery: <%= @item.delivery %></p>
-  <p>Policies: <%= @item.policies %></p>
+    <div class="container">
+      <div class="row">
+        <div class="col-4" id="form">
+          <%= simple_form_for [@item, @rental] do |f| %>
+            <%= f.input :start_date, as: :date, html5: true %>
+            <%= f.input :end_date, as: :date, html5: true %>
+            <%= f.submit "Book", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+
+        <div
+        class="col-8"
+        id="map"
+        style="width: 320px;
+        height: 320px;"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+        ></div>
+      </div>
+    </div>
+
+
+    <%= link_to "Return", items_path %>
+  </div>
+
+
+
+
+<a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@adigold1?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Adi Goldstein"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span style="display:inline-block;padding:2px 3px">Adi Goldstein</span></a>
 </div>
 
-<div class="container">
-  <%= simple_form_for [@item, @rental] do |f| %>
-    <%= f.input :start_date, as: :date, html5: true %>
-    <%= f.input :end_date, as: :date, html5: true %>
-    <%= f.submit "Book" %>
-  <% end %>
-</div>
 
-<%= link_to "Return", items_path %>
 
-<div
-    id="map"
-    style="width: 100%;
-    height: 600px;"
-    data-markers="<%= @markers.to_json %>"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-></div>
+
+
+
 
