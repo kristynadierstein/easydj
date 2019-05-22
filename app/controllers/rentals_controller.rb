@@ -16,6 +16,10 @@
   end
 
   def update
+    @rental = Rental.find(params[:id])
+    @rental.status = params[:status]
+    @rental.save
+    redirect_to dashboard_path
   end
 
   def destroy
@@ -27,6 +31,6 @@
   private
 
   def rental_params
-    params.require(:rental).permit(:start_date, :end_date)
+    params.require(:rental).permit(:start_date, :end_date, :status)
   end
 end
