@@ -18,7 +18,7 @@
     </div>
 
     <div class="container">
-      <div class="row">
+      <div class="row" id="form_map">
         <div class="col-4" id="form">
           <%= simple_form_for [@item, @rental] do |f| %>
             <%= f.input :start_date, as: :date, html5: true %>
