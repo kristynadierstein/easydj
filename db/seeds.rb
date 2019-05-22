@@ -6,9 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Rental.destroy_all if Rails.env.development?
-Item.destroy_all if Rails.env.development?
-User.destroy_all if Rails.env.development?
+Rental.destroy_all
+Item.destroy_all
+User.destroy_all
 
 
 peter_pan = User.create!(
@@ -17,7 +17,7 @@ peter_pan = User.create!(
   username: "peter_pan",
   email: "peter_pan@fairy.com",
   password: "user_peter_pan",
-  image_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/quaaqkoxit0ddk7pdupp.jpg"
+  remote_photo_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/quaaqkoxit0ddk7pdupp.jpg"
   )
 
 cindy = User.create!(
@@ -26,7 +26,7 @@ cindy = User.create!(
   username: "Cindy",
   email: "cindy@swamp.cz",
   password: "user_cindy",
-  image_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/rowb3acggdlhtsgzaafs.jpg")
+  remote_photo_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/rowb3acggdlhtsgzaafs.jpg")
 
 
 speaker = Item.create!(
@@ -67,7 +67,7 @@ speaker = Item.create!(
   remote_photo_url: "https://i.ebayimg.com/00/s/MTQ4MFgxNjAw/z/29UAAOSwVKhcc8QO/$_1.JPG",
   delivery: "drop off at your place",
   policies: "missing cables will result in a fee of $10",
-  user_id: peter_pan.id,
+  user_id: cindy.id,
   start_date:"2019-06-27",
   end_date: "2019-06-30"
 )
@@ -98,7 +98,7 @@ speaker = Item.create!(
   remote_photo_url: "https://sc02.alicdn.com/kf/HTB1DOo4QpXXXXa5XpXXq6xXFXXXQ.jpg",
   delivery: "drop off",
   policies: "Be careful with the lose the mic clips for each mic, and plastic carrying case as pictured.",
-  user_id: peter_pan.id,
+  user_id: cindy.id,
   start_date:"2019-06-24",
   end_date: "2019-07-10"
 )
@@ -112,7 +112,7 @@ speaker = Item.create!(
   remote_photo_url: "https://www.avshop.ca/bmz_cache/6/6d5d19749a728ff14221ac1d4d924160.image.500x500.jpg",
   delivery: "pick up at my place, or drop off",
   policies: "do not spill water",
-  user_id: peter_pan.id,
+  user_id: cindy.id,
   start_date:"2019-06-23",
   end_date: "2019-06-27"
 )
@@ -160,19 +160,19 @@ dj_set = Item.create!(
   end_date: "2019-06-27"
   )
 
-random_a = Rental.create!(
-  status: "pending",
-  user_id: peter_pan.id,
-  item_id: dj_set.id,
-  start_date:"2019-06-25",
-  end_date: "2019-06-26"
-  )
+# random_a = Rental.create!(
+#   status: "pending",
+#   user_id: peter_pan.id,
+#   item_id: dj_set.id,
+#   start_date:"2019-06-25",
+#   end_date: "2019-06-26"
+#   )
 
-random_b = Rental.create!(
-  status: "approved",
-  user_id: cindy.id,
-  item_id: speaker.id,
-  start_date:"2019-06-26",
-  end_date: "2019-06-27"
-  )
+# random_b = Rental.create!(
+#   status: "approved",
+#   user_id: cindy.id,
+#   item_id: speaker.id,
+#   start_date:"2019-06-26",
+#   end_date: "2019-06-27"
+#   )
 
