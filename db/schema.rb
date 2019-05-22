@@ -29,7 +29,10 @@ ActiveRecord::Schema.define(version: 2019_05_21_193732) do
     t.datetime "updated_at", null: false
     t.date "start_date"
     t.date "end_date"
+<<<<<<< HEAD
     t.string "photo"
+=======
+>>>>>>> aa317db1fcb4ec7b06ecb58fc6ffee325f6559e6
     t.float "latitude"
     t.float "longitude"
     t.index ["user_id"], name: "index_items_on_user_id"
