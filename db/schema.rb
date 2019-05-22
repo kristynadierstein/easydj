@@ -30,11 +30,8 @@ ActiveRecord::Schema.define(version: 2019_05_21_193732) do
     t.string "photo"
     t.date "start_date"
     t.date "end_date"
-
-    t.string "photo"
     t.float "latitude"
     t.float "longitude"
-
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 

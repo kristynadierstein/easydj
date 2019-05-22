@@ -1,18 +1,14 @@
-<div class="container">
-
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-
-
-<div class="container">
-<%= form_tag items_path, method: :get do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "find an item"
-  %>
-  <%= button_tag "submit", type: :submit %>
-<% end %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(http://beacheast.co.uk/wp-content/uploads/2017/06/cocktails.jpg);">
+  <h1>Pages#home</h1>
+  <div class="container">
+  <%= form_tag items_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "find an item"
+    %>
+    <%= button_tag "submit", type: :submit %>
+  <% end %>
+  </div>
 </div>
 
-</div>
