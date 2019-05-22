@@ -22,7 +22,7 @@
         <%= link_to "logout",  destroy_user_session_path, method: :delete, class: "nav-link" %>
       </li>
       <li class="nav-item dropdown">
-        
+
         <% if current_user.photo.file != nil %>
         <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="<%= cl_image_path current_user.photo %>" />
         <% end %>
