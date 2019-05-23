@@ -1,4 +1,4 @@
-<div class="background_image_speaker">
+<div class="showpage-container">
   <div class="narrowed_container">
     <div id="item_title">
       <h1><%= @item.name %></h1>
@@ -8,13 +8,12 @@
       <%= cl_image_tag @item.photo, height: 300, width: 400, crop: :fill %>
     </div>
     <div class="item_details">
-      <p>Description: <%= @item.description %></p>
-      <p>Price: <%= @item.price %></p>
-      <p>Location: <%= @item.location %></p>
-      <p>Condition: <%= @item.condition %></p>
-      <p>Deposit: <%= @item.deposit %></p>
-      <p>Delivery: <%= @item.delivery %></p>
-      <p>Policies: <%= @item.policies %></p>
+      <p><strong>Description:</strong> <%= @item.description %></p>
+      <p><strong>Condition:</strong> <%= @item.condition %></p>
+      <p><strong>Price:</strong> <%= @item.price %></p>
+      <p><strong>Deposit:</strong> <%= @item.deposit %></p>
+      <p><strong>Location:</strong> <%= @item.location %></p>
+      <p><strong>Delivery:</strong> <%= @item.delivery %></p>
     </div>
 
     <div class="container map_container">
@@ -38,15 +37,13 @@
       </div>
     </div>
 
-
-    <%= link_to "Return", items_path %>
+    <div class="btn return-button">
+      <%= link_to "Return", items_path %>
+    </div>
   </div>
-
-
-
-
-<a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@adigold1?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Adi Goldstein"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span style="display:inline-block;padding:2px 3px">Adi Goldstein</span></a>
 </div>
+
+
 
 
 

@@ -42,6 +42,7 @@
   padding: 16px;
 }
 
+
 a {
   color: $dark-gray;
   &:hover {
@@ -50,10 +51,20 @@ a {
 
  }
 
-
-
 .card-dashboard{
-  height:150px;
+  height:200px;
+  padding-bottom: 10px;
+  p {
+    font-size: 12px;
+  }
+
+  a {
+    font-size: 16px;
+  }
+}
+
+.card-deck {
+  margin-bottom: 50px;
 }
 
 .card-product .card-trip-pricing {
