@@ -1,5 +1,6 @@
-<div class="banner flex-container bannerhomepage" id="searchbar" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://i.ytimg.com/vi/54DVdfEv5mA/maxresdefault.jpg);">
-  <!-- <h1>Pages#home</h1> -->
+<div class="banner flex-container bannerhomepage" id="searchbar">
+  <h1>Easy DJ</h1>
+
 
   <%= form_tag items_path, method: :get, class: "form-inline" do %>
     <%= text_field_tag :query,
@@ -11,3 +12,10 @@
   <% end %>
 </div>
 
+
+<!-- <div class="searchicon">
+    <%= link_to root_path do %>
+       <i class="fas fa-search"></i>
+  <% end %>
+
+ -->

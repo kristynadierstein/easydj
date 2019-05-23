@@ -2,15 +2,17 @@
   background-size: cover;
   background-position: center;
   padding: 150px 0;
-  margin-bottom: 20px;
-}
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://i.ytimg.com/vi/54DVdfEv5mA/maxresdefault.jpg);
+  height: calc(100vh - 56px);
+  background-position: center bottom;
 
 .banner h1 {
   margin: 0;
   color: white;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 32px;
-  font-weight: bold;
+  text-shadow: 1px 2px 3px rgba(0,0,0,0.2);
+  font-size: 40px;
+  // font-weight: bold;
+  padding-bottom: 30px;
 }
 
 .banner p {
@@ -20,7 +22,16 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
 .bannerhomepage
 {
-height: 100vh;
+// height: 100vh;
 }
