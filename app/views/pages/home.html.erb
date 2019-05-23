@@ -1,14 +1,21 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(http://beacheast.co.uk/wp-content/uploads/2017/06/cocktails.jpg);">
-  <h1>Pages#home</h1>
-  <div class="container">
-  <%= form_tag items_path, method: :get do %>
+<div class="banner flex-container bannerhomepage" id="searchbar">
+  <h1>Easy DJ</h1>
+
+
+  <%= form_tag items_path, method: :get, class: "form-inline" do %>
     <%= text_field_tag :query,
       params[:query],
       class: "form-control",
-      placeholder: "find an item"
+      placeholder: "Find an item"
     %>
-    <%= button_tag "submit", type: :submit %>
+    <%= button_tag "Submit", type: :submit %>
   <% end %>
-  </div>
 </div>
 
+
+<!-- <div class="searchicon">
+    <%= link_to root_path do %>
+       <i class="fas fa-search"></i>
+  <% end %>
+
+ -->

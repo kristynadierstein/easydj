@@ -29,10 +29,10 @@ ActiveRecord::Schema.define(version: 2019_05_21_193732) do
     t.datetime "updated_at", null: false
     t.date "start_date"
     t.date "end_date"
-<<<<<<< HEAD
+
     t.string "photo"
-=======
->>>>>>> aa317db1fcb4ec7b06ecb58fc6ffee325f6559e6
+
+
     t.float "latitude"
     t.float "longitude"
     t.index ["user_id"], name: "index_items_on_user_id"
@@ -61,8 +61,8 @@ ActiveRecord::Schema.define(version: 2019_05_21_193732) do
     t.string "first_name"
     t.string "last_name"
     t.string "username"
-    t.string "photo"
     t.string "image_url"
+    t.string "photo"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

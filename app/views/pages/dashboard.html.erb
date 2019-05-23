@@ -1,35 +1,53 @@
 <div class="container">
-  <h1>Pages#dashboard</h1>
-    <p>Find me in app/views/pages/dashboard.html.erb</p>
 
-<h2>My rentals: </h2>
+<h2>My rentals </h2>
+<div class="container">
+  <div class="row">
     <% @rentals.each do |rental| %>
-      <div class="card-product">
-        <div>
-          <%= cl_image_tag(rental.item.photo) %>
-        </div>
-        <div class="card-product-infos">
-          <h2><%= rental.item.name %></h2>
-          <p> <%= rental.start_date %></p>
-          <p> <%= rental.end_date %></p>
-          <p> <%= rental.status %></p>
-          <%= link_to 'Delete', rental_path(rental), method: :delete, data: { confirm: 'Are you sure?' } %>
+      <div class="col-sm-4">
+        <div class="card-product card-dashboard">
+          <%= link_to item_path(rental.item.id) do %>
+            <div>
+              <%= cl_image_tag(rental.item.photo) %>
+            </div>
+          <% end %>
+          <div class="card-product-infos">
+            <p class="card-text"> You booked this item from: <%= rental.start_date %> to <%= rental.end_date %></p>
+            <br>
+            <p> Status of your booking:</p>
+            <div class = "status">
+              <%= simple_form_for(rental) do |f| %>
+                <%= select_tag "status", options_for_select(Rental::STATUS, rental.status) %>
+                <%= f.submit("Update", class: "icon-cw") %>
+              <% end %>
+            </div>
+            <div class="btn">
+              <%= link_to 'Delete', rental_path(rental), method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div>
+          </div>
         </div>
       </div>
     <% end %>
+  </div>
+</div>
 
 
-<h2>My items: </h2>
-  <% @items.each do |item| %>
-    <div class="card-product">
-      <div>
-        <%= cl_image_tag(item.photo) %>
-      </div>
-      <div class="card-product-infos">
-        <h2><%= item.name %></h2>
-          <p>Product description with <strong>relevant info</strong> only.</p>
-            <%= link_to 'Delete', item, method: :delete, data: { confirm: 'Are you sure?' } %>
-      </div>
-    </div>
-  <% end %>
- </div>
+  <div class="my_items">
+    <h2>My items </h2>
+      <% @items.each do |item| %>
+        <div class="card-product">
+          <div>
+            <%= cl_image_tag(item.photo) %>
+          </div>
+          <div class="card-product-infos">
+            <h2><%= item.name %></h2>
+              <p>Product description with <strong>relevant info</strong> only.</p>
+                <%= link_to 'Delete', item, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
+        </div>
+      <% end %>
+  </div>
+</div>
+
+
+
