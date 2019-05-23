@@ -14,7 +14,9 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <!-- <a class="nav-link" href="#">Button</a> -->
-        <%= link_to "Create new item", new_item_path(@items), class: "nav-link" %>
+        <% if current_user %>
+          <%= link_to "Create new item", new_item_path(@items), class: "nav-link" %>
+      <% end %>
       </li>
       <%if user_signed_in? %>
        <li class="nav-item active">
