@@ -8,14 +8,17 @@
       class: "form-control",
       placeholder: "Find an item"
     %>
-    <%= button_tag "Submit", type: :submit %>
+
+
+  <%= button_tag(class: "btn btn-default", type: :submit) do %>
+       <i class="fas fa-search"></i>
+    <% end %>
   <% end %>
 </div>
 
 
-<!-- <div class="searchicon">
-    <%= link_to root_path do %>
-       <i class="fas fa-search"></i>
-  <% end %>
 
- -->
+
+
+
+

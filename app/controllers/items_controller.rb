@@ -3,12 +3,12 @@ class ItemsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
     if params[:query].present?
-      @items = Item.where("name @@ ?", "%#{params[:query]}%")
+
+      sql_query = "items.name ILIKE :query OR items.description ILIKE :query "
+        @items = Item.where(sql_query, query: "%#{params[:query]}%")
     else
       @items = Item.all
     end
-
-     @items = Item.where.not(latitude: nil, longitude: nil)
   end
 
   def create
@@ -38,7 +38,6 @@ class ItemsController < ApplicationController
     @item.destroy
     redirect_to dashboard_path
   end
-
 
   private
 
