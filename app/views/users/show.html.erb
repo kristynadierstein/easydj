@@ -1,0 +1,14 @@
+<div class="profile-banner" id="user-profile">
+  <div class="container">
+    <h1>Welcolme <%= @user.first_name %></h1>
+    <%= cl_image_tag(@user.photo.url) %>
+    <p><%= @user.first_name %> <%= @user.last_name %></p>
+    <p><%= @user.username %></p>
+    <p><%= @user.email %></p>
+  </div>
+</div>
+
+
+
+
+

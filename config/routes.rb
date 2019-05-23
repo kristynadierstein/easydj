@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :items, except: [:edit, :update] do
   resources :rentals, only: [:new, :create]
   end
+  resources :users, only: [:show]
+
 
   resources :rentals, only: [:edit, :update, :destroy]
 
