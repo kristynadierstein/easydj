@@ -7,5 +7,6 @@ class PagesController < ApplicationController
   def dashboard
     @rentals = current_user.rentals
     @items = current_user.items
+    @rental = Rental.new
   end
 end
