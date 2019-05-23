@@ -32,7 +32,18 @@
   padding: 16px;
 }
 
-
 .card-dashboard{
-  height:150px;
+  height:200px;
+  padding-bottom: 10px;
+  p {
+    font-size: 12px;
+  }
+
+  a {
+    font-size: 16px;
+  }
+}
+
+.card-deck {
+  margin-bottom: 50px;
 }
