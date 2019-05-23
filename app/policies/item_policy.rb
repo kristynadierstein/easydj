@@ -4,7 +4,7 @@ class ItemPolicy < ApplicationPolicy
       scope.all
     end
 
-    def create
+    def create?
       return true if current_user
     end
   end
