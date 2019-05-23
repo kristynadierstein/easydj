@@ -1,11 +1,23 @@
+
+  .fa-check .fa-time .fa-question {
+    color: gray;
+  }
+
+
   .pending_status {
    color: orange;
   }
-  .accepted_status {
+  .confirmed_status {
    color: green;
   }
-  .rejected_status {
+  .cancelled_status {
    color: red;
+  }
+
+  h2 {
+    font-size: 20px;
+    padding-top: 30px;
+    padding-bottom: 10px;
   }
 
   .status {
@@ -16,25 +28,15 @@
       -webkit-appearance: none;
       -moz-appearance: none;
       appearance: none;
-    }
-  }
-  .my_bookings{
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
-
-  .card{
-    display: inline-block;
-    font-size: 15px;
-  }
-
-  .card-body{
-    p {
-      font-size: 12px;
-    }
-
-    a {
-      font-size: 16px;
+      font-size:12px;
     }
   }
 
+  #note-dashboard {
+    font-size: 12px;
+    color: red;
+  }
+
+  #header-dashboard {
+    font-size: 20px;
+  }
