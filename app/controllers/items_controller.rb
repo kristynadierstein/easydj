@@ -3,9 +3,7 @@ class ItemsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
     if params[:query].present?
-
-      sql_query = "items.name ILIKE :query OR items.description ILIKE :query "
-        @items = Item.where(sql_query, query: "%#{params[:query]}%")
+   @items = Item.search_by_name_and_description params[:query]
     else
       @items = Item.all
     end

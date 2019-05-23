@@ -10,6 +10,8 @@ body{
   position: fixed;
   width: 100%;
   top: 0;
+  z-index:100;
+  // opacity:0.6;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -19,11 +21,21 @@ body{
 
 .fa-napster {
   color: #495057;
-  font-size: 32px;
+  font-size: 30px;
+  justify-content: center;
+  align-content: center;
+  display:flex;
+  // margin-right:20px;
 }
 
 
 .nav-link {
   color: #495057 !important;
+}
+.flex-box{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
