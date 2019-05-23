@@ -5,6 +5,7 @@
   background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://i.ytimg.com/vi/54DVdfEv5mA/maxresdefault.jpg);
   height: calc(100vh - 56px);
   background-position: center bottom;
+}
 
 .banner h1 {
   margin: 0;
@@ -27,11 +28,4 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-
-
-.bannerhomepage
-{
-// height: 100vh;
 }
