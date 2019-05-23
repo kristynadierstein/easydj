@@ -1,12 +1,18 @@
-  // .pending_status {
-  //  color: orange;
-  // }
-  // .accepted_status {
-  //  color: green;
-  // }
-  // .rejected_status {
-  //  color: red;
-  // }
+
+  .fa-check .fa-time .fa-question {
+    color: gray;
+  }
+
+
+  .pending_status {
+   color: orange;
+  }
+  .confirmed_status {
+   color: green;
+  }
+  .cancelled_status {
+   color: red;
+  }
 
 
 
@@ -28,7 +34,5 @@
     }
   }
 
-.fa-trash-alt{
-  color: gray;
-}
+
 

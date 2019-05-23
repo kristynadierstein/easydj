@@ -14,7 +14,7 @@
           <% end %>
           <div class="card-product-infos">
             <div class="card-title">
-             <h2><%= link_to rental.item.name,item_path(rental.item.id) %></h2>
+             <h2><%= link_to rental.item.name.truncate(25),item_path(rental.item.id)%></h2>
             </div>
             <div class="card-text">
             <p> You booked this item:
@@ -22,12 +22,21 @@
             </div>
             <p> Status of your booking:</p>
             <div class = "status">
-              <%= simple_form_for(rental) do |f| %>
-                <%= select_tag "status", options_for_select(Rental::STATUS, rental.status) %>
-                <%= f.label, label: ("<i class='far fa-edit'></i>").html_safe %>
-              <% end %>
+              <div class="booking-actions">
+                <%= link_to rental_path(rental, {status: "confirmed"}), method: :patch do %>
+                  <i class="fas fa-check <%= rental.status == 'confirmed' ? 'confirmed_status' : '' %>"></i>
+                <% end %>
+
+                <%= link_to rental_path(rental, {status: "cancelled"}), method: :patch do %>
+                  <i class="fas fa-times <%= rental.status == 'cancelled' ? 'cancelled_status' : '' %>"></i>
+                <% end %>
+
+                <%= link_to rental_path(rental, {status: "pending"}), method: :patch do %>
+                  <i class="fas fa-question <%= rental.status == 'pending' ? 'pending_status' : '' %>"></i>
+                <% end %>
+              </div>
             </div>
-            <div id="btn">
+            <div id="btn-trash">
               <%= link_to "<i class='far fa-trash-alt'></i>".html_safe, rental_path(rental), method: :delete, data: { confirm: 'Are you sure?' } %>
             </div>
           </div>
