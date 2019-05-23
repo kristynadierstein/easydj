@@ -1,7 +1,7 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(http://newmoonriverinn.com/wp-content/uploads/parser/pioneer-casino-1.png);">
     <div class="container">
-      <h1><strong>EasyDj</strong></h1>
-      <p id="rotate">
+      <h1><strong>EasyDj</h1>
+      <p id="rotate"> EadyDj
        <span
        class="txt-rotate"
        data-period="1800"
@@ -23,6 +23,8 @@
             <h2><%= truncate(item.name, {length: 35}) %></h2>
             <% end %>
             <p><%= truncate(item.description, {length: 50}) %></p>
+            <h2 class="card-trip-pricing">$<%= item.price %></h2>
+            <%= cl_image_tag(item.photo) %>
           </div>
         </div>
       </div>
