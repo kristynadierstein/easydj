@@ -35,10 +35,11 @@
 }
 
 #my-index-banner {
-  height: 100px;
+  height: 100px !important;
   background-size: cover;
   background-position: center;
   padding: 150px 0;
+}
 
 .txt-rotate {
   text-align: center;
