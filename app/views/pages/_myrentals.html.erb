@@ -1,0 +1,37 @@
+<h2>my rentals</h2>
+        <div class="row">
+          <% @rentals.each do |rental| %>
+            <div class="col-sm-4">
+              <div class="card-product card-dashboard">
+                <%= link_to item_path(rental.item.id) do %>
+                    <%= cl_image_tag(rental.item.photo, class:"card-picture") %>
+                <div class="card-product-infos">
+                   <h2><%= link_to rental.item.name.truncate(25),item_path(rental.item.id)%></h2>
+                <% end %>
+                  <p> You booked this item:
+                    <br>
+                    <strong><%= rental.start_date %></strong> to <strong><%= rental.end_date %></strong></p>
+                  <p> Status of your booking:</p>
+                  <div class = "status">
+                    <div class="booking-actions">
+                      <% if rental.status == "confirmed" %>
+                        <i class="fas fa-check confirmed_status"></i>
+                        <p id="note-dashboard-confirmed"> Your booking was confirmed! </p>
+                      <% elsif rental.status == "cancelled" %>
+                      <i class="fas fa-times cancelled_status "></i>
+                      <p id="note-dashboard-cancelled"> Your boking was cancelled! </p>
+                      <% else %>
+                      <i class="fas fa-question pending_status"></i>
+                      <p id="note-dashboard-pending">Your booking is pending confirmation....</p>
+                      <% end %>
+                    </div>
+                  </div>
+                  <div id="btn-trash">
+                    <%= link_to "<i class='far fa-trash-alt'></i>".html_safe, rental_path(rental), method: :delete, data: { confirm: 'Are you sure?' } %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>

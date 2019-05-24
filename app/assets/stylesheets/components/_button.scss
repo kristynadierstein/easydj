@@ -2,6 +2,30 @@
   float:right;
 }
 
+#btn-trash :hover {
+  color:black;
+}
+
 .fa-trash-alt{
     color: gray;
+    font-size: 10px;
   }
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+ }
+
+ .tooltip:hover .tooltiptext {
+   visibility: visible;
+}
