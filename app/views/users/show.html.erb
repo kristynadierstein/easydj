@@ -12,7 +12,9 @@
       <p>Email: <%= @user.email %></p>
       <p>Member since: 2015</p>
       <p>Number of posts: <%= @user.items.count  %></p>
-      <%#= render "path_of_partial" %>
+      <p> See items: <%= render "../pages/items"  %></p>
+
+      <a href="javascript:history.go(-1)" title="Return to the previous page">&laquo; Go back</a>
 
       <% if current_user == @user %>
         <%= link_to "edit profile",  edit_user_registration_path%>
