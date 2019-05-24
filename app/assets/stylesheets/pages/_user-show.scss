@@ -45,6 +45,23 @@
   }
 }
 
+.modal-footer a {
+  border: 1px $dark-gray solid;
+  border-radius: 2px;
+  color: $dark-gray;
+  background-color: white;
+  padding: 4px 16px;
+  transition: 0.2s;
+  &:hover {
+    color: white;
+    background-color: $dark-gray;
+    text-decoration: none;
+  }
+}
+#my-border-footer {
+  border-top: 0;
+}
+
 #user-profile p {
   font-size: 20px;
   color: $medium-gray;
