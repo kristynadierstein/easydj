@@ -8,11 +8,13 @@
           <div class="modal-body">
               <center>
               <img src="<%= user.photo  %>" name="aboutme" width="140" height="140" border="0" class="rounded-circle"></a>
-              <h3 class="media-heading"><%= user.first_name.capitalize %><small></small></h3>
+              <h3 class="media-heading"><%= user.first_name.capitalize %> <%= user.last_name.capitalize %><small></small>
+              </h3>
+              <p>Email: <%= user.email %></p>
           </div>
           <div class="modal-footer justify-content-center">
               <!-- <center> -->
-             <button type="button" class="btn btn-primary" data-dismiss="modal"><%= user.first_name.capitalize %></button>
+             <%= link_to"Profile Page", user_path(user)%>
             <!-- </center> -->
           </div>
       </div>
