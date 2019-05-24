@@ -1,12 +1,16 @@
-<div class="profile-banner" id="user-profile">
-  <div class="container">
-    <h1>Welcolme <%= @user.first_name %></h1>
-    <%= cl_image_tag(@user.photo.url) %>
-    <p><%= @user.first_name %> <%= @user.last_name %></p>
-    <p><%= @user.username %></p>
-    <p><%= @user.email %></p>
+<div class="profile-banner d-flex align-items-center" id="user-profile">
+  <div class="container d-flex align-items-center">
+    <%= cl_image_tag(@user.photo.url, class: "image-profile") %>
+    <div class="profile-content d-flex flex-column align-items-center">
+      <h1>Welcome <%= @user.first_name %></h1>
+      <h2><%= @user.first_name %> <%= @user.last_name %></h2>
+      <p><%= @user.username %></p>
+      <p><%= @user.email %></p>
+      <%= link_to "edit profile",  edit_user_registration_path%>
+    </div>
   </div>
 </div>
+
 
 
 
