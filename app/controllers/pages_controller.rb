@@ -5,8 +5,10 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    @booked_items = current_user.items.select do |item|
+      item.rentals.size > 0
+    end
     @rentals = current_user.rentals
     @items = current_user.items
-    @rental = Rental.new
   end
 end

@@ -1,7 +1,10 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-      <%= link_to root_path do %>
-        <i class="fab fa-napster"></i> EasyDJ</i>
+      <%= link_to root_path, class: "text-decoration-none" do %>
+      <div class="flex-box">
+        <i class="fab fa-napster"></i> EasyDJ
+      </div>
       <% end %>
+
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -15,15 +18,14 @@
           <%= link_to "Create new item", new_item_path(@items), class: "nav-link" %>
         <% end %>
       </li>
+
       <%if user_signed_in? %>
-       <li class="nav-item active">
-        <!-- <a class="nav-link" href="#">Button</a> -->
-        <%= link_to "Logout",  destroy_user_session_path, method: :delete, class: "nav-link" %>
-      </li>
+
+
       <li class="nav-item dropdown">
 
         <% if current_user.photo.file != nil %>
-        <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="<%= cl_image_path current_user.photo %>" />
+          <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true"aria-expanded="false" src="<%= cl_image_path current_user.photo %>" />
         <% end %>
 
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -32,10 +34,12 @@
           <%= link_to destroy_user_session_path, method: :delete, class: 'dropdown-item' do %>
             <i class="fas fa-sign-out-alt"></i>Log out
           <% end %>
+           <a class="dropdown-item" href="#"> <%= link_to "Dashboard", dashboard_path %> </a>
         </div>
+
       </li>
       <% else %>
-      <li class="nav-item">
+        <li class="nav-item">
         <!-- <a class="nav-link" href="/users/sign_in">Login</a> -->
         <%= link_to "Login", new_user_session_path, class: "nav-link" %>
       </li>

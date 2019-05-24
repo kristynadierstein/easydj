@@ -1,52 +1,55 @@
-<div class="background_image_speaker">
-  <div class="narrowed_container">
-    <div id="item_title">
-      <h1><%= @item.name %></h1>
+<div class="container">
+  <div class="row">
+
+    <div class="col-8">
+      <div class="item-title">
+        <h1><%= @item.name %></h1>
+      </div>
+
+      <div class="item-photo">
+        <%= cl_image_tag @item.photo, height: 300, width: 400, crop: :fill %>
+      </div>
+      <div class="item-details">
+        <p><strong>Description:</strong> <%= @item.description %></p>
+        <p><strong>Condition:</strong> <%= @item.condition %></p>
+        <p><strong>Price:</strong> $<%= @item.price %></p>
+        <p><strong>Deposit:</strong> $<%= @item.deposit %></p>
+        <p><strong>Location:</strong> <%= @item.location %></p>
+        <p><strong>Delivery:</strong> <%= @item.delivery %></p>
+      </div>
+
+      <div
+      id="map"
+      style="width: 320px;
+      height: 320px;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+      ></div>
+
+      <div class="btn return-button">
+        <%= link_to "Return", items_path %>
+      </div>
     </div>
 
-    <div id="item_photo">
-      <%= cl_image_tag @item.photo, height: 300, width: 400, crop: :fill %>
-    </div>
-    <div class="item_details">
-      <p>Description: <%= @item.description %></p>
-      <p>Price: <%= @item.price %></p>
-      <p>Location: <%= @item.location %></p>
-      <p>Condition: <%= @item.condition %></p>
-      <p>Deposit: <%= @item.deposit %></p>
-      <p>Delivery: <%= @item.delivery %></p>
-      <p>Policies: <%= @item.policies %></p>
-    </div>
-
-    <div class="container map_container">
-      <div class="row" id="form_map">
-        <div class="col-4" id="form">
+    <div class="col-4">
+      <div class="book-form">
+        <div class="card form-card">
           <%= simple_form_for [@item, @rental] do |f| %>
             <%= f.input :start_date, as: :date, html5: true %>
             <%= f.input :end_date, as: :date, html5: true %>
             <%= f.submit "Book", class: "btn btn-primary" %>
           <% end %>
         </div>
-
-        <div
-        class="col-8"
-        id="map"
-        style="width: 320px;
-        height: 320px;"
-        data-markers="<%= @markers.to_json %>"
-        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-        ></div>
       </div>
+
     </div>
 
 
-    <%= link_to "Return", items_path %>
   </div>
-
-
-
-
-<a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@adigold1?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Adi Goldstein"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span style="display:inline-block;padding:2px 3px">Adi Goldstein</span></a>
 </div>
+
+
+
 
 
 
