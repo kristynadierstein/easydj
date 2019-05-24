@@ -10,7 +10,7 @@ Rental.destroy_all
 Item.destroy_all
 User.destroy_all
 
-
+puts "creating user..."
 peter_pan = User.create!(
   first_name: "Peter",
   last_name: "Peterson",
@@ -28,7 +28,7 @@ cindy = User.create!(
   password: "user_cindy",
   remote_photo_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/rowb3acggdlhtsgzaafs.jpg")
 
-
+puts "creating items..."
 speaker = Item.create!(
   location: "Montreal - Laval",
   name: "Powerfull Speaker",
@@ -36,7 +36,7 @@ speaker = Item.create!(
   price: 10,
   condition: "1 year old. Great condition. Small hole on the top from cigarette butt.",
   deposit: 100,
-  remote_photo_url: "https://www.listeningpost.co.nz/assets/Yamaaha-NS-5000-Speakers-Pair_183108_5.jpg",
+  remote_photo_url: "https://icdn2.digitaltrends.com/image/poster-for-5780497362001-720x720.jpg",
   delivery: "pick up at my place",
   policies: "if you break it or there is another hole from cigarette butt, you will buy me a new one",
   user_id: peter_pan.id,
@@ -50,7 +50,7 @@ mixer = Item.create!(
   price: 200,
   condition: "5 year old. Great condition.",
   deposit: 500,
-  remote_photo_url: "https://www.picclickimg.com/d/l400/pict/303069431753_/Rockville-RPG082K-Dual-8-Powered-PA-System-Speakers-Bluetooth-Mic-Stands-Mixer.jpg",
+  remote_photo_url: "https://img.letgo.com/images/2e/1f/e5/a5/2e1fe5a5ec9a8f4b49d57862cc96dcf7.jpeg?impolicy=img_600",
   delivery: "pick up at my place",
   policies: "if you spill water the deposit will be gone",
   user_id: peter_pan.id,
@@ -64,7 +64,7 @@ mix_package = Item.create!(
   price: 150,
   condition: "4 year old. Ok condition. Headphones fairly worn a",
   deposit: 300,
-  remote_photo_url: "https://i.ebayimg.com/00/s/MTQ4MFgxNjAw/z/29UAAOSwVKhcc8QO/$_1.JPG",
+  remote_photo_url: "https://images.unsplash.com/photo-1461784180009-21121b2f204c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
   delivery: "drop off at your place",
   policies: "missing cables will result in a fee of $10",
   user_id: cindy.id,
@@ -78,7 +78,7 @@ cd_player = Item.create!(
   price: 50,
   condition: "3 years old. fair condition.",
   deposit: 150,
-  remote_photo_url: "https://www.picclickimg.com/d/l400/pict/303097138201_/RELOOP-RMP-2-RMP-2-CD-PLAYER-DJ-MP3.jpg",
+  remote_photo_url: "https://images.unsplash.com/photo-1545855210-84c197e3b00f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1491&q=80",
   delivery: "pick up at my place, or drop off available",
   policies: "if you break I will ask for all the deposit",
   user_id: peter_pan.id,
@@ -95,7 +95,7 @@ microphone = Item.create!(
   price: 90,
   condition: "1 year old. Great condition.",
   deposit: 300,
-  remote_photo_url: "https://sc02.alicdn.com/kf/HTB1DOo4QpXXXXa5XpXXq6xXFXXXQ.jpg",
+  remote_photo_url: "https://images.unsplash.com/photo-1525431301226-f824535d4953?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80",
   delivery: "drop off",
   policies: "Be careful with the lose the mic clips for each mic, and plastic carrying case as pictured.",
   user_id: peter_pan.id,
@@ -109,7 +109,7 @@ ball = Item.create!(
   price: 50,
   condition: "3 year old. Great condition.",
   deposit: 300,
-  remote_photo_url: "https://www.avshop.ca/bmz_cache/6/6d5d19749a728ff14221ac1d4d924160.image.500x500.jpg",
+  remote_photo_url: "https://images.unsplash.com/photo-1503218751919-1ea90572e609?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
   delivery: "pick up at my place, or drop off",
   policies: "do not spill water",
   user_id: cindy.id,
@@ -124,7 +124,7 @@ dj_set = Item.create!(
   price: 80,
   condition: "You get a perfect table to play your cool shit",
   deposit: 500,
-  remote_photo_url: "https://images-na.ssl-images-amazon.com/images/I/514J8t-BCSL._SL1032_.jpg",
+  remote_photo_url: "https://wingsofhopeinc.org/wp-content/uploads/2018/07/Manual-Mixer-Djm-600-Pioneer-Dj-Set-810x517.jpg",
   delivery: "pick up at Toronto, Maple Leaves stadium",
   policies: "dont break it",
   user_id: cindy.id,
@@ -133,12 +133,12 @@ dj_set = Item.create!(
   )
 smoke = Item.create!(
   location: "Toronto",
-  name: "Smoker",
+  name: "Piano Keyboard",
   description: "Pro FOGGER SMOKE MACHINE & Remote Party Stage - 1000W 3000 cu.Ft/pre used . Condition is Used. Shipped with USPS First Class Package.",
   price: 80,
   condition: "You get a perfect table to play your cool shit",
   deposit: 150,
-  remote_photo_url: "https://www.picclickimg.com/d/l400/pict/303087541976_/Pro-FOGGER-SMOKE-MACHINE-Remote-Party-Stage.jpg",
+  remote_photo_url: "https://images.unsplash.com/photo-1522870389523-7e83c0065eaf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
   delivery: "pick up at Toronto, Maple Leaves stadium",
   policies: "dont break it",
   user_id: cindy.id,
@@ -152,7 +152,7 @@ recorder = Item.create!(
   price: 50,
   condition: "Fairly Used",
   deposit: 100,
-  remote_photo_url: "https://jeru100.files.wordpress.com/2010/11/vox-mic1.jpg",
+  remote_photo_url: "https://images.unsplash.com/photo-1467196271131-42c8c8499d72?ixlib=rb-1.2.1&auto=format&fit=crop&w=1368&q=80",
   delivery: "pick up at Toronto, Maple Leaves stadium",
   policies: "dont break it",
   user_id: cindy.id,
@@ -160,6 +160,7 @@ recorder = Item.create!(
   end_date: "2019-06-27"
   )
 
+puts "creating rentals..."
 random_a = Rental.create!(
   status: "pending",
   user_id: peter_pan.id,
@@ -208,3 +209,5 @@ random_f = Rental.create!(
   start_date:"2019-06-26",
   end_date: "2019-06-27"
   )
+
+puts "finished"
