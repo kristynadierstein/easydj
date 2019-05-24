@@ -17,7 +17,7 @@ peter_pan = User.create!(
   username: "peter_pan",
   email: "peter_pan@fairy.com",
   password: "user_peter_pan",
-  remote_photo_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/quaaqkoxit0ddk7pdupp.jpg"
+  remote_photo_url: "https://res.cloudinary.com/dgbyx82it/image/upload/v1558722969/photos/dj_jvpipc.jpg"
   )
 
 cindy = User.create!(

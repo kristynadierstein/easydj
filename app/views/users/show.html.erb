@@ -8,8 +8,11 @@
       <% end  %>
 
       <h2><%= @user.first_name %> <%= @user.last_name %></h2>
-      <p><%= @user.username %></p>
-      <p><%= @user.email %></p>
+      <p>Username: <%= @user.username %></p>
+      <p>Email: <%= @user.email %></p>
+      <p>Member since: 2015</p>
+      <p>Number of posts: <%= @user.items.count  %></p>
+      <%#= render "path_of_partial" %>
 
       <% if current_user == @user %>
         <%= link_to "edit profile",  edit_user_registration_path%>
