@@ -2,11 +2,20 @@
   <div class="container d-flex align-items-center">
     <%= cl_image_tag(@user.photo.url, class: "image-profile") %>
     <div class="profile-content d-flex flex-column align-items-center">
-      <h1>Welcome <%= @user.first_name %></h1>
+
+      <% if current_user == @user %>
+        <h1>Welcome <%= @user.first_name %></h1>
+      <% end  %>
+
       <h2><%= @user.first_name %> <%= @user.last_name %></h2>
       <p><%= @user.username %></p>
       <p><%= @user.email %></p>
-      <%= link_to "edit profile",  edit_user_registration_path%>
+
+      <% if current_user == @user %>
+        <%= link_to "edit profile",  edit_user_registration_path%>
+      <% end %>
+
+
     </div>
   </div>
 </div>

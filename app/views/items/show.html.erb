@@ -9,6 +9,12 @@
       <div class="item-photo">
         <%= cl_image_tag @item.photo, height: 300, width: 400, crop: :fill %>
       </div>
+
+      <div class="user-link">
+        <%= cl_image_tag(@item.user.photo, class:"avatar") %>
+        <%= link_to @item.user.username, user_path(@item.user) %>
+      </div>
+
       <div class="item-details">
         <p><strong>Description:</strong> <%= @item.description %></p>
         <p><strong>Condition:</strong> <%= @item.condition %></p>
