@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container show-container">
   <div class="row">
 
     <div class="col-8">
@@ -18,13 +18,13 @@
         <p><strong>Delivery:</strong> <%= @item.delivery %></p>
       </div>
 
-      <div
-      id="map"
-      style="width: 320px;
-      height: 320px;"
-      data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-      ></div>
+      <div class="row map-row">
+        <div
+        id="map"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+        ></div>
+      </div>
 
       <div class="btn return-button">
         <%= link_to "Return", items_path %>
