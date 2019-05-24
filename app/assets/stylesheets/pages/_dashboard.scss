@@ -2,8 +2,6 @@
   .fa-check .fa-time .fa-question {
     color: gray;
   }
-
-
   .pending_status {
    color: orange;
   }
@@ -39,4 +37,9 @@
 
   #header-dashboard {
     font-size: 20px;
+    text-align: center;
+  }
+
+  #container-dashboard {
+    margin-top: 50px;
   }
