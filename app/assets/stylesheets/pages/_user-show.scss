@@ -1,6 +1,6 @@
 
 #user-profile .container {
-  background-color: rgba(255,255,255,0.7);
+  background-color: rgba(255, 255, 255, 0.7);
   margin-top: 0px;
   width: 70%;
   padding: 16px;
@@ -28,7 +28,7 @@
 #user-profile h2 {
   font-size: 35px;
   color: $medium-gray;
- padding-top: 2px;
+  padding-top: 2px;
 }
 
 #user-profile a {
@@ -51,6 +51,7 @@
 }
 
 #user-profile {
+  background: rgba(187, 195, 208, 0.7);
   background-size: cover;
   background-position: center;
   height: calc(100vh - 56px);
@@ -60,7 +61,7 @@
 .profile-content {
   padding: 24px 8px;
   flex: 1 0 auto;
-  border-left: 2px solid $light-gray;
+  border-left: 2px solid rgba(187, 195, 208, 0.7);
 }
 
 
