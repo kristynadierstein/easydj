@@ -10,10 +10,14 @@
             <% end %>
             <p><%= truncate(item.description, {length: 50}) %></p>
             <h2 class="card-trip-pricing">$<%= item.price %></h2>
-            <%= cl_image_tag(item.user.photo, class:"avatar") %>
+            <a style="color:white" href="#aboutModal" data-toggle="modal" data-target="#user-modal-<%= item.user.id %>">
+              <%= cl_image_tag(item.user.photo, class:"avatar") %>
+           </a>
           </div>
         </div>
+        <!-- <span class="span3 well"></span> -->
       </div>
+      <%= render partial: 'shared/profile-pop', locals: { user: item.user } %>
     <% end %>
   </div>
 </div>
