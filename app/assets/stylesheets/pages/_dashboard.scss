@@ -31,8 +31,21 @@
   }
 
   #note-dashboard {
-    font-size: 12px;
+    font-size: 10px;
     color: red;
+  }
+
+  #note-dashboard-pending {
+    font-size: 10px;
+    color: orange;
+  }
+  #note-dashboard-confirmed{
+    font-size:10px;
+    color:green;
+  }
+  #note-dashboard-cancelled{
+    font-size:10px;
+    color:red
   }
 
   #header-dashboard {
