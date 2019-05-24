@@ -4,15 +4,13 @@
       <div class="col-sm-4">
         <div class="card-product">
           <%= link_to item_path(item) do %>
-          <div>
-            <%= cl_image_tag(item.photo) %>
-          </div>
+          <%= cl_image_tag(item.photo, class:"card-picture") %>
           <div class="card-product-infos">
             <h2><%= truncate(item.name, {length: 35}) %></h2>
             <% end %>
             <p><%= truncate(item.description, {length: 50}) %></p>
             <h2 class="card-trip-pricing">$<%= item.price %></h2>
-            <%= cl_image_tag(item.photo) %>
+            <%= cl_image_tag(item.user.photo, class:"avatar") %>
           </div>
         </div>
       </div>
