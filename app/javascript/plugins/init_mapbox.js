@@ -11,7 +11,7 @@ const initMapbox = () => {
     });
     const markers = JSON.parse(mapElement.dataset.markers);
     markers.forEach((marker) => {
-      new mapboxgl.Marker()
+      new mapboxgl.Marker({color:"#ff1a1a"})
         .setLngLat([ marker.lng, marker.lat ])
         .addTo(map);
     });
@@ -25,6 +25,6 @@ export { initMapbox };
 const fitMapToMarkers = (map, markers) => {
   const bounds = new mapboxgl.LngLatBounds();
   markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
-  map.fitBounds(bounds, { padding: 70, maxZoom: 15 });
+  map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 2000 });
 };
 
