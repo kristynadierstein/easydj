@@ -69,15 +69,23 @@ a {
 
 .card-product .card-trip-pricing {
   position: absolute;
-  top: 8px;
+  top: 0px;
   right: 8px;
 }
-.card-product-infos img {
+
+img.card-picture {
+  height: 100%;
+
+}
+
+
+.card-product-infos img.avatar {
 position: absolute;
 width: 32px;
 height: 32px;
 border-radius: 50%;
-bottom: 8px;
-right: 8px;
+bottom: 5px;
+right: 5px;
 }
+
 
