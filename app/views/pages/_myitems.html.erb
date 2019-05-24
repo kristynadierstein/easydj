@@ -1,0 +1,22 @@
+<h2>my items</h2>
+<p id="note-dashboard-black"> list of your dj equipment to be rented </p>
+      <div class="row">
+        <% @items.each do |item| %>
+              <div class="col-sm-4">
+                <div class="card-product">
+                  <%= link_to item_path(item) do %>
+                  <%= cl_image_tag(item.photo, class:"card-picture") %>
+                  <div class="card-product-infos">
+                    <h2><%= truncate(item.name, {length: 35}) %></h2>
+                    <% end %>
+                    <p><%= truncate(item.description, {length: 50}) %></p>
+                    <h2 class="card-trip-pricing" id="card-trip-pricing">$<%= item.price %></h2>
+                    <div id="btn-trash">
+                      <%= link_to "<i class='far fa-trash-alt'></i>".html_safe, item_path(item), method: :delete, data: { confirm: 'Are you sure?' } %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+      </div>
+

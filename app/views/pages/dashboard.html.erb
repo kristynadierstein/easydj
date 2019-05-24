@@ -1,109 +1,31 @@
 <div class="container" id="container-dashboard">
-  <h1 id="header-dashboard"> Welcome to you dashboard <%= current_user.first_name %></h1>
-  <h2>my bookings</h2>
-      <p id="note-dashboard"> please confirm or cancel rental requests here </p>
-        <div class="card-deck">
-          <div class="card">
-            <div class="row">
-              <% @booked_items.each do |item| %>
-              <div class="col-sm-4">
-                <div class="card-product card-dashboard">
-                <%= cl_image_tag(item.photo, class:"card-picture") %>
-                <div class="card-product-infos">
-                   <h2><%= link_to item.name.truncate(25),item_path(item)%></h2>
-                      <p> Booking request from:
-                      <%= User.find(item.rentals.last.user_id).first_name%></p>
-                      <p> Item requested period: <%= item.rentals.last.start_date%> to <%= item.rentals.last.end_date %></p>
-                      <p> Change the status of the request:</p>
-                    <div class = "status">
-                      <div class="booking-actions">
-                        <%= link_to rental_path(item.rentals.last, {status: "confirmed"}), method: :patch do %>
-                        <i class="fas fa-check <%= item.rentals.last.status == 'confirmed' ? 'confirmed_status' : '' %>"></i>
-                        <% end %>
-                        <%= link_to rental_path(item.rentals.last, {status: "cancelled"}), method: :patch do %>
-                        <i class="fas fa-times <%= item.rentals.last.status == 'cancelled' ? 'cancelled_status' : '' %>"></i>
-                        <% end %>
-                        <%= link_to rental_path(item.rentals.last, {status: "pending"}), method: :patch do %>
-                        <i class="fas fa-question <%= item.rentals.last.status == 'pending' ? 'pending_status' : '' %>"></i>
-                      <% end %>
-                      </div>
-                    </div>
-                    <div id="btn-trash">
-                      <%= link_to "<i class='far fa-trash-alt'></i>".html_safe, rental_path(item.rentals.last), method: :delete, data: { confirm: 'Are you sure?' } %>
-                    </div>
-                </div>
-              </div>
-            </div>
-          <% end %>
-          </div>
-      </div>
+  <h1 id="header-dashboard"> Welcome to your dashboard <%= current_user.first_name %>!</h1>
+
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">bookings</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">items</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">rentals</a>
+    </li>
+  </ul>
+
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+    <%= render 'mybookings' %>
     </div>
+  </div>
 
+  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+    <%= render 'myitems' %>
+  </div>
 
-    <h2>my items</h2>
-      <div class="card-deck">
-        <div class="card">
-          <div class="row">
-            <% @items.each do |item| %>
-                  <div class="col-sm-4">
-                    <div class="card-product">
-                      <%= link_to item_path(item) do %>
-                      <%= cl_image_tag(item.photo, class:"card-picture") %>
-                      <div class="card-product-infos">
-                        <h2><%= truncate(item.name, {length: 35}) %></h2>
-                        <% end %>
-                        <p><%= truncate(item.description, {length: 50}) %></p>
-                        <h2 class="card-trip-pricing" id="card-trip-pricing">$<%= item.price %></h2>
-                        <div id="btn-trash">
-                          <%= link_to "<i class='far fa-trash-alt'></i>".html_safe, item_path(item), method: :delete, data: { confirm: 'Are you sure?' } %>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                <% end %>
-          </div>
-        </div>
-      </div>
-
-    <h2>my rentals</h2>
-        <div class="card-deck">
-          <div class="card">
-            <div class="row">
-              <% @rentals.each do |rental| %>
-                <div class="col-sm-4">
-                  <div class="card-product card-dashboard">
-                    <%= link_to item_path(rental.item.id) do %>
-                        <%= cl_image_tag(rental.item.photo, class:"card-picture") %>
-                    <div class="card-product-infos">
-                       <h2><%= link_to rental.item.name.truncate(25),item_path(rental.item.id)%></h2>
-                    <% end %>
-                      <p> You booked this item:
-                        <%= rental.start_date %> to <%= rental.end_date %></p>
-                      <p> Status of your booking:</p>
-                      <div class = "status">
-                        <div class="booking-actions">
-                          <% if rental.status == "confirmed" %>
-                            <i class="fas fa-check confirmed_status"></i>
-                            <p id="note-dashboard-confirmed"> Your booking was confirmed! </p>
-                          <% elsif rental.status == "cancelled" %>
-                          <i class="fas fa-times cancelled_status "></i>
-                          <p id="note-dashboard-cancelled"> Your boking was cancelled! </p>
-                          <% else %>
-                          <i class="fas fa-question pending_status"></i>
-                          <p id="note-dashboard-pending">Your booking is pending confirmation....</p>
-                          <% end %>
-                        </div>
-                      </div>
-                      <div id="btn-trash">
-                        <%= link_to "<i class='far fa-trash-alt'></i>".html_safe, rental_path(rental), method: :delete, data: { confirm: 'Are you sure?' } %>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              <% end %>
-            </div>
-          </div>
-        </div>
+  <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+   <%= render 'myrentals' %>
+  </div>
 </div>
 
 
